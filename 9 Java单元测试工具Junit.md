@@ -15,7 +15,7 @@
 - 可以将测试代码和产品代码分开
 - 测试代码编写容易，功能强大
 - 自动检验结果并且提供立即的反馈
-- ……
+- ...
 
 
 ## JUnit简介
@@ -24,19 +24,19 @@
 - 支持语言
   - Smalltalk, Java, C++, Perl 等等
 - 支持的IDE
-  - JBuilder, VisualAge ,Eclipse等
+  - JBuilder, VisualAge, Eclipse等
 
 
 ## Junit框架
-![20221012114057](image/Junit/20221012114057.png)
+![20221012114057](image/9Java单元测试工具Junit/20221012114057.png)
 
 
 ## JUnit核心类及接口
-![20221012114627](image/Junit/20221012114627.png)
+![20221012114627](image/9Java单元测试工具Junit/20221012114627.png)
 - TestRunner（测试运行器）
   - TestRunner继承自BaseTestRunner
-- TestCase（测试用例）
-  - 扩展了JUnit的TestCase类的类,包含一个或多个测试方法
+- TestCase（测试类）
+  - 扩展了JUnit的TestCase类的类，包含一个或多个测试方法。使用测试类，可以把多个具有公共行为的测试归入一组。
   - TestCase的fixture
     - 管理一个或多个测试所需的公用资源或者数据集合
     - 通过setUp和tearDown方法来创建和销毁fixture
@@ -120,6 +120,7 @@
 
 
 ## 参数化测试
+- 参数化测试运行器允许你使用不同的参数多次运行同一个测试。
 - 测试类必须由Parameterized测试运行器修饰
 - 准备数据。数据的准备需要在一个方法中进行，该方法需要满足一定的要求：
   1. 该方法必须由Parameters注解修饰
