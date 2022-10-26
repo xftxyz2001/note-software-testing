@@ -143,3 +143,31 @@
   - 不要试图把多个测试塞进一个方法，这样导致的结果就是测试方法变得更复杂，而且在测试方法中编写的逻辑越多，测试失败的可能性也就越大，需要调试的可能性也就越大
 - 同一个包，分离的目录
   - 把所有测试和待测类都放在同一个包中，但使用平行目录结构
+
+
+## Junit实践
+![1666745911244](image/9Java单元测试工具Junit/1666745911244.png)
+- Controller接口
+  - DefaultController类
+    - addHandler方法
+    - getHandler方法
+    - processRequest方法
+- Request接口
+  - SampleRequest类
+    - 初始化方法
+    - getName方法
+- Response接口
+  - SampleResponse类&ErrorResponse类
+- RequestHandler接口
+  - SampleHandler类&SampleExceptionHandler类
+    - process方法
+
+测试要求：
+1. 准备好测试框架——定义类和必要的成员
+2. 测试addHandler和getHandler的行为
+3. 测试处理请求
+4. 分离初始化逻辑
+5. 测试在处理请求时抛出异常，返回ErrorResponse
+6. 测试抛出异常的方法
+7. 测试超时
+8. 测试ignore功能
