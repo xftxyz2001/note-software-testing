@@ -12,3 +12,5 @@
 - 11 配置测试与兼容性测试
 - 12 性能测试与JMeter
 - 13 外国语言测试：本地化测试问题
+- 14 易用性测试：UI测试问题
+- 15 JavaScript：HTML与JavaScript
