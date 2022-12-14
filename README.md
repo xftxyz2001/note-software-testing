@@ -16,3 +16,6 @@
 - JavaScript：HTML与JavaScript
 - 15 网站测试
 - 16 Web测试工具Selenium
+- 17 文档测试
+- 18 安全性测试
+- 19 自动测试和测试工具
