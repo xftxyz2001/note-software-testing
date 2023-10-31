@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据合法性校验</title>
+    <script lang="javascript">
+        function validateForm() {
+            var myForm = document.forms["myForm"];
+
+            // 字段信息
+            var sno = myForm["sno"].value;
+            var sname = myForm["sname"].value;
+            var pinyin = myForm["pinyin"].value;
+            var gender = myForm["gender"].value;
+            var idcard = myForm["idcard"].value;
+            var education = myForm["education"].value;
+            var major = myForm["major"].value;
+            var school = myForm["school"].value;
+            var workstatus = myForm["workstatus"].value;
+            var workunit = myForm["workunit"].value;
+            var worktype = myForm["worktype"].value;
+            var address = myForm["address"].value;
+            var postcode = myForm["postcode"].value;
+            var studentstatus = myForm["studentstatus"].value;
+            var admissiontime = myForm["admissiontime"].value;
+            var mark = myForm["mark"].value;
+
+            // 校验规则
+            // 学号：13位数字
+            var snoRule = /^\d{13}$/;
+            // 姓名：3-4个汉字
+            var snameRule = /^[\u4e00-\u9fa5]{3,4}$/;
+            // 拼音：限20个英文字母
+            var pinyinRule = /^[a-zA-Z]{1,20}$/;
+            // 性别：男或女（1/0）
+            var genderRule = /^[01]$/;
+            // 身份证号
+            var idcardRule = /^\d{17}[\dX]$/; // 18位数字或17位数字加X，（应该有完整的校验，这里简化一下）
+            // 文化程度：1-4
+            var educationRule = /^[1-4]$/;
+            // 专业：1-12
+            var majorRule = /^(?:1[0-2]|[1-9])$/;
+            // 毕业学校
+            var schoolRule = /^[\u4e00-\u9fa5]{1,20}$/;
+            // 工作状态：1-3
+            var workstatusRule = /^[1-3]$/;
+            // 工作单位
+            var workunitRule = /^[\u4e00-\u9fa5]{1,20}$/;
+            // 工作类型：1-4
+            var worktypeRule = /^[1-4]$/;
+            // 通讯地址
+            var addressRule = /^[\u4e00-\u9fa5]{1,30}$/;
+            // 邮政编码
+            var postcodeRule = /^\d{6}$/;
+            // 学员状态：1-3
+            var studentstatusRule = /^[1-3]$/;
+            // 入学时间：yyyy-mm-dd
+            var admissiontimeRule = /^\d{4}-\d{2}-\d{2}$/;
+            // 备注
+            var markRule = /^[\u4e00-\u9fa5]{1,100}$/;
+
+            // document.write("学号：" + sno + "<br>");
+            // document.write("姓名：" + sname + "<br>");
+            // document.write("拼音：" + pinyin + "<br>");
+            // document.write("性别：" + gender + "<br>");
+            // document.write("身份证号：" + idcard + "<br>");
+            // document.write("文化程度：" + education + "<br>");
+            // document.write("专业：" + major + "<br>");
+            // document.write("毕业学校：" + school + "<br>");
+            // document.write("工作状态：" + workstatus + "<br>");
+            // document.write("工作单位：" + workunit + "<br>");
+            // document.write("工作类型：" + worktype + "<br>");
+            // document.write("通讯地址：" + address + "<br>");
+            // document.write("邮政编码：" + postcode + "<br>");
+            // document.write("学员状态：" + studentstatus + "<br>");
+            // document.write("入学时间：" + admissiontime + "<br>");
+            // document.write("备注：" + mark + "<br>");
+
+            // 检查必填项目
+            if (sno == "") {
+                alert("学号不能为空");
+                return false;
+            }
+
+            if (sname == "") {
+                alert("姓名不能为空");
+                return false;
+            }
+
+            if (pinyin == "") {
+                alert("拼音不能为空");
+                return false;
+            }
+
+            if (gender == "") {
+                alert("性别不能为空");
+                return false;
+            }
+
+            if (education == "") {
+                alert("文化程度不能为空");
+                return false;
+            }
+
+            if (major == "") {
+                alert("专业不能为空");
+                return false;
+            }
+
+            if (workstatus == "") {
+                alert("工作状态不能为空");
+                return false;
+            }
+
+            if (worktype == "") {
+                alert("工作类型不能为空");
+                return false;
+            }
+
+            if (studentstatus == "") {
+                alert("学员状态不能为空");
+                return false;
+            }
+
+            if (admissiontime == "") {
+                alert("入学时间不能为空");
+                return false;
+            }
+
+            // 检查格式
+            if (!snoRule.test(sno)) {
+                alert("学号格式错误");
+                return false;
+            }
+
+            if (!snameRule.test(sname)) {
+                alert("姓名格式错误");
+                return false;
+            }
+
+            if (!pinyinRule.test(pinyin)) {
+                alert("拼音格式错误");
+                return false;
+            }
+
+            if (!genderRule.test(gender)) {
+                alert("性别格式错误");
+                return false;
+            }
+
+            if (idcard != "" && !idcardRule.test(idcard)) {
+                alert("身份证号格式错误");
+                return false;
+            }
+
+            if (!educationRule.test(education)) {
+                alert("文化程度格式错误");
+                return false;
+            }
+
+            if (!majorRule.test(major)) {
+                alert("专业格式错误");
+                return false;
+            }
+
+            if (school != "" && !schoolRule.test(school)) {
+                alert("毕业学校格式错误");
+                return false;
+            }
+
+            if (!workstatusRule.test(workstatus)) {
+                alert("工作状态格式错误");
+                return false;
+            }
+
+            if (workunit != "" && !workunitRule.test(workunit)) {
+                alert("工作单位格式错误");
+                return false;
+            }
+
+            if (!worktypeRule.test(worktype)) {
+                alert("工作类型格式错误");
+                return false;
+            }
+
+            if (address != "" && !addressRule.test(address)) {
+                alert("通讯地址格式错误");
+                return false;
+            }
+
+            if (postcode != "" && !postcodeRule.test(postcode)) {
+                alert("邮政编码格式错误");
+                return false;
+            }
+
+            if (!studentstatusRule.test(studentstatus)) {
+                alert("学员状态格式错误");
+                return false;
+            }
+
+            if (!admissiontimeRule.test(admissiontime)) {
+                alert("入学时间格式错误");
+                return false;
+            }
+
+            if (mark != "" && !markRule.test(mark)) {
+                alert("备注格式错误");
+                return false;
+            }
+
+            return true;
+
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" action="newtable.html" onsubmit="return validateForm();" method="post">
+        <table>
+            <!-- 学号/姓名/姓名拼音/性别/身份证号/文化程度/专业/毕业学校/工作状态/工作单位/工作种类/通讯地址/邮编/学员状态/入学时间/备注 -->
+            <tr>
+                <td>学号</td>
+                <td><input type="text" name="sno" /><span style="color: red;">** 13位学员学号</span></span></td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" name="sname" /><span style="color: red;">** 3-4个汉字 中文汉字</span></td>
+            </tr>
+            <tr>
+                <td>姓名拼音</td>
+                <td><input type="text" name="pinyin" /><span style="color: red;">** 限20个英文字母</span></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td><input type="radio" name="gender" value="1" />男 <input type="radio" name="gender" value="0" />女
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>身份证号</td>
+                <td><input type="text" name="idcard" /></td>
+            </tr>
+            <tr>
+                <td>文化程度</td>
+                <td>
+                    <select name="education">
+                        <option value="1">初中及以下</option>
+                        <option value="2">高中或中专</option>
+                        <option value="3">本科或大专</option>
+                        <option value="4">硕士及以上</option>
+                    </select>
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>专业</td>
+                <td>
+                    <!-- 哲学、经济学、法学、教育学、文学、历史学、理学、工学、农学、医学、管理学、艺术学 -->
+                    <select name="major">
+                        <option value="1">哲学及相关专业</option>
+                        <option value="2">经济学及相关专业</option>
+                        <option value="3">法学及相关专业</option>
+                        <option value="4">教育学及相关专业</option>
+                        <option value="5">文学及相关专业</option>
+                        <option value="6">历史学及相关专业</option>
+                        <option value="7">理学及相关专业</option>
+                        <option value="8">工学及相关专业</option>
+                        <option value="9">农学及相关专业</option>
+                        <option value="10">医学及相关专业</option>
+                        <option value="11">管理学及相关专业</option>
+                        <option value="12">艺术学及相关专业</option>
+                    </select>
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>毕业学校</td>
+                <td><input type="text" name="school" /></td>
+            </tr>
+            <tr>
+                <td>工作状态</td>
+                <td>
+                    <select name="workstatus">
+                        <option value="1">在职</option>
+                        <option value="2">离职</option>
+                        <option value="3">待业</option>
+                    </select>
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>工作单位</td>
+                <td><input type="text" name="workunit" /></td>
+            </tr>
+            <tr>
+                <td>工作种类</td>
+                <td>
+                    <select name="worktype">
+                        <option value="1">国有企业</option>
+                        <option value="2">私营企业</option>
+                        <option value="3">事业单位</option>
+                        <option value="4">其他</option>
+                    </select>
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>通讯地址</td>
+                <td><input type="text" name="address" /></td>
+            </tr>
+            <tr>
+                <td>邮编</td>
+                <td><input type="text" name="postcode" /></td>
+            </tr>
+            <tr>
+                <td>学员状态</td>
+                <td>
+                    <select name="studentstatus">
+                        <option value="1">在读</option>
+                        <option value="2">休学</option>
+                        <option value="3">退学</option>
+                    </select>
+                    <span style="color: red;">**</span>
+                </td>
+            </tr>
+            <tr>
+                <td>入学时间</td>
+                <td><input type="date" name="admissiontime" /><span style="color: red;">**</span></td>
+
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td><textarea name="mark" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span style="color: red;">注意：带**号的选项为必填字段</span></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+                <td><input type="reset"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
